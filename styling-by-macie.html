@@ -882,6 +882,167 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── HAMBURGER BUTTON ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 101;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--dark);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── TABLET: 1024px ── */
+  @media (max-width: 1024px) {
+    .container { padding: 0 32px; }
+    nav { padding: 24px 32px; }
+    nav.scrolled { padding: 16px 32px; }
+
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 120px 32px 60px; }
+    .hero-right { min-height: 50vh; }
+    .hero-float-badge { right: 10px; }
+    .hero-float-quote { top: auto; bottom: 15%; left: 10px; max-width: 200px; }
+
+    .truth-inner { grid-template-columns: 1fr; gap: 48px; }
+    .truth-right { grid-template-columns: 1fr 1fr; }
+
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .service-card { padding: 40px 32px; }
+
+    .philosophy-inner { grid-template-columns: 1fr; gap: 48px; }
+    .philosophy-accent { display: none; }
+
+    .qualifier-inner { grid-template-columns: 1fr; gap: 2px; }
+    .qualifier-col { padding: 48px 40px; }
+
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-step::after { display: none; }
+
+    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    .about-right { order: -1; max-width: 400px; }
+    .about-accent-box { display: none; }
+    .about-stat-badge { right: 0; }
+
+    .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    .testimonial-card:last-child { grid-column: 1 / -1; }
+
+    .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  /* ── MOBILE: 768px ── */
+  @media (max-width: 768px) {
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      position: fixed;
+      inset: 0;
+      background: var(--cream);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .nav-links.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .nav-links a { font-size: 16px; letter-spacing: 0.12em; }
+    .nav-cta { font-size: 14px !important; padding: 14px 32px !important; }
+
+    .container { padding: 0 20px; }
+    nav { padding: 20px 20px; }
+    nav.scrolled { padding: 14px 20px; }
+
+    .hero-left {
+      padding: 100px 20px 48px;
+      text-align: center;
+      align-items: center;
+    }
+    .hero-body { max-width: 100%; }
+    .hero-actions { flex-direction: column; gap: 16px; }
+    .hero-right { min-height: 60vh; }
+    .photo-frame { width: 85%; }
+    .hero-float-quote { top: auto; bottom: 12%; left: 8px; max-width: 180px; padding: 12px 14px; }
+    .hero-float-quote p { font-size: 12px; }
+    .hero-float-badge { bottom: 10%; right: 8px; padding: 14px 18px; }
+    .badge-number { font-size: 28px; }
+
+    .truth-section { padding: 80px 0; }
+    .truth-right { grid-template-columns: 1fr; }
+    .truth-highlight { font-size: 17px; }
+
+    .services-section { padding: 80px 0; }
+    .services-grid { grid-template-columns: 1fr; }
+    .services-header { margin-bottom: 40px; }
+    .service-card { padding: 40px 24px; }
+    .service-card-num { font-size: 48px; }
+
+    .philosophy-section { padding: 80px 0; }
+    .philosophy-inner { gap: 32px; }
+    .philosophy-list li { gap: 14px; padding: 16px 0; }
+
+    .qualifier-section { padding: 80px 0; }
+    .qualifier-inner { margin-top: 40px; }
+    .qualifier-col { padding: 36px 24px; }
+    .qualifier-col-title { font-size: 26px; margin-bottom: 28px; }
+
+    .process-section { padding: 80px 0; }
+    .process-steps { grid-template-columns: 1fr; }
+    .process-step { padding: 36px 24px; }
+    .step-num { font-size: 44px; }
+    .process-header { margin-bottom: 40px; }
+
+    .about-section { padding: 80px 0; }
+    .about-inner { gap: 32px; }
+    .about-signature { font-size: 28px; }
+
+    .testimonials-section { padding: 80px 0; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonials-header { margin-bottom: 40px; }
+    .testimonial-card { padding: 36px 28px; }
+    .testimonial-card:last-child { grid-column: auto; }
+    .testimonial-text { font-size: 16px; }
+
+    .cta-section { padding: 80px 0; }
+    .btn-cta-main { padding: 16px 36px; font-size: 12px; }
+
+    .modal-overlay { padding: 16px; }
+    .modal-header { padding: 28px 24px 24px; }
+    .modal-title { font-size: 28px; }
+    .modal-body { padding: 28px 24px 36px; }
+    .form-row { grid-template-columns: 1fr; }
+
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+  }
+
+  /* ── SMALL PHONE: 400px ── */
+  @media (max-width: 400px) {
+    .hero-float-quote { display: none; }
+    .hero-float-badge { padding: 10px 14px; }
+    .badge-number { font-size: 22px; }
+    .badge-label { font-size: 9px; }
+    .service-card-title { font-size: 24px; }
+    .truth-card { padding: 24px 20px; }
+    .qualifier-list li { font-size: 13px; }
+  }
 </style>
 </head>
 <body>
@@ -889,11 +1050,14 @@
 <!-- ── NAV ── -->
 <nav id="nav">
   <a href="#" class="nav-logo">Styling <span>by Macie</span></a>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#process">How It Works</a>
-    <a href="#" class="nav-cta" onclick="openModal(event)">Apply Now</a>
+    <a href="#services" onclick="closeMobileNav()">Services</a>
+    <a href="#about" onclick="closeMobileNav()">About</a>
+    <a href="#process" onclick="closeMobileNav()">How It Works</a>
+    <a href="#" class="nav-cta" onclick="openModal(event); closeMobileNav();">Apply Now</a>
   </div>
 </nav>
 
@@ -1358,6 +1522,16 @@
     btn.textContent = 'Application Sent! Macie will be in touch ✦';
     btn.style.background = '#C9A87C';
     setTimeout(closeModal, 2200);
+  }
+
+  // ── Mobile Nav
+  function toggleMobileNav() {
+    document.querySelector('.nav-hamburger').classList.toggle('active');
+    document.querySelector('.nav-links').classList.toggle('open');
+  }
+  function closeMobileNav() {
+    document.querySelector('.nav-hamburger').classList.remove('active');
+    document.querySelector('.nav-links').classList.remove('open');
   }
 </script>
 </body>
